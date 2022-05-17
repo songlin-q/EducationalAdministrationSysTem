@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EducationalAdministrationSysTem.API</name>
+    </assembly>
+    <members>
+        <member name="T:EducationalAdministrationSysTem.API.Controllers.UserInfoController">
+            <summary>
+            用户接口
+            </summary>
+        </member>
+    </members>
+</doc>
