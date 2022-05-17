@@ -8,7 +8,7 @@
 
  2、前端：Vue 3.0+elementUI3.0
 
- 3、数据库:Sqllite
+ 3、数据库:Sqlserver+SqlSugar
 
 ## 业务逻辑
 
