@@ -5,6 +5,14 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationalAdministrationSysTem.API", "EducationalAdministrationSysTem.API\EducationalAdministrationSysTem.API.csproj", "{2A970E61-26F8-4DBA-B331-6121C00EA4CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationalAdministrationSysTem.API.Repository", "EducationalAdministrationSysTem.API.Repository\EducationalAdministrationSysTem.API.Repository.csproj", "{271A791D-A912-477F-93CC-43F593783915}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationalAdministrationSysTem.API.Model", "EducationalAdministrationSysTem.API.Model\EducationalAdministrationSysTem.API.Model.csproj", "{2BC90A07-1959-4EE0-9714-D6A8908F57EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationalAdministrationSysTem.API.Services", "EducationalAdministrationSysTem.API.Services\EducationalAdministrationSysTem.API.Services.csproj", "{DE93E9B7-C2B5-471F-9B17-3B773ED6F79C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationalAdministrationSysTem.API.IServices", "EducationalAdministrationSysTem.API.IServices\EducationalAdministrationSysTem.API.IServices.csproj", "{EB2DBBFD-EE82-459E-BAC6-EB0FC9AB6A5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{2A970E61-26F8-4DBA-B331-6121C00EA4CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A970E61-26F8-4DBA-B331-6121C00EA4CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A970E61-26F8-4DBA-B331-6121C00EA4CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{271A791D-A912-477F-93CC-43F593783915}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{271A791D-A912-477F-93CC-43F593783915}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{271A791D-A912-477F-93CC-43F593783915}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{271A791D-A912-477F-93CC-43F593783915}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BC90A07-1959-4EE0-9714-D6A8908F57EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BC90A07-1959-4EE0-9714-D6A8908F57EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BC90A07-1959-4EE0-9714-D6A8908F57EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BC90A07-1959-4EE0-9714-D6A8908F57EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE93E9B7-C2B5-471F-9B17-3B773ED6F79C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE93E9B7-C2B5-471F-9B17-3B773ED6F79C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE93E9B7-C2B5-471F-9B17-3B773ED6F79C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE93E9B7-C2B5-471F-9B17-3B773ED6F79C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB2DBBFD-EE82-459E-BAC6-EB0FC9AB6A5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB2DBBFD-EE82-459E-BAC6-EB0FC9AB6A5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB2DBBFD-EE82-459E-BAC6-EB0FC9AB6A5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB2DBBFD-EE82-459E-BAC6-EB0FC9AB6A5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,5 +9,11 @@
             用户接口
             </summary>
         </member>
+        <member name="M:EducationalAdministrationSysTem.API.Controllers.UserInfoController.CreateTables">
+            <summary>
+            映射表到数据库
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

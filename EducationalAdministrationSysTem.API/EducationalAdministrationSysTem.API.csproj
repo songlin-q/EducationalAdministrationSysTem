@@ -16,4 +16,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EducationalAdministrationSysTem.API.Model\EducationalAdministrationSysTem.API.Model.csproj" />
+    <ProjectReference Include="..\EducationalAdministrationSysTem.API.Services\EducationalAdministrationSysTem.API.Services.csproj" />
+  </ItemGroup>
+
 </Project>
