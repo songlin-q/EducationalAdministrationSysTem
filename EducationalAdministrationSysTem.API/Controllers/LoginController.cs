@@ -16,7 +16,7 @@ namespace EducationalAdministrationSysTem.API.Controllers
         {
             _t_StudentsService = t_StudentsService;
         }
-         
+          
         [HttpGet]
         public async Task<MessageModel> GetInfo()
         {
