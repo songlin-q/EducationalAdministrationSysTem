@@ -1,5 +1,5 @@
-﻿using EducationalAdministrationSysTem.API.IServices.Base;
-using EducationalAdministrationSysTem.API.Repository.Base;
+﻿using EducationalAdministrationSysTem.API.IRepository.Base;
+using EducationalAdministrationSysTem.API.IServices.Base;
 using SqlSugar;
 using System;
 using System.Collections.Generic;

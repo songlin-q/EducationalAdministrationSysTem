@@ -54,6 +54,7 @@ namespace EducationalAdministrationSystem.CreateTableAPI.Controller
 
             if (Env.IsDevelopment())
             {
+                //获取到数据库中的表 然后进行生成model层、服务层、服务接口层
                 BaseDBConfig.MutiConnectionString.allDbs.ToList().ForEach(item =>
                 {
                     _sqlSugarScope.ChangeDatabase(item.ConnId.ToLower());

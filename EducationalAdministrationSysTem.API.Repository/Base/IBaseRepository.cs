@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EducationalAdministrationSysTem.API.Repository.Base
+namespace EducationalAdministrationSysTem.API.IRepository.Base
 {
     /// <summary>
     /// 仓库接口层

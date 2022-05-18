@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EducationalAdministrationSysTem.API.Repository.UnitOfWork
+namespace EducationalAdministrationSysTem.API.IRepository.UnitOfWork
 {
     public interface IUnitOfWork
     {

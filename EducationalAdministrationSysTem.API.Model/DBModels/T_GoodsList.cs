@@ -68,7 +68,7 @@ namespace EducationalAdministrationSysTem.API.Model.DBModels
         /// <summary>
         /// 会员类型
         /// </summary>
-        public ? memberTypeList { get; set; }
+        public string ? memberTypeList { get; set; }
         /// <summary>
         /// 现金折扣价
         /// </summary>
@@ -76,7 +76,7 @@ namespace EducationalAdministrationSysTem.API.Model.DBModels
         /// <summary>
         /// 支付单位
         /// </summary>
-        public ? payUnitStr { get; set; }
+        public string ? payUnitStr { get; set; }
         /// <summary>
         /// DuiHuanJiaGeMin
         /// </summary>

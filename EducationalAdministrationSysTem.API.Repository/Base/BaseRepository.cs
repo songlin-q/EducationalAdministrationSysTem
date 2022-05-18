@@ -1,6 +1,6 @@
 ﻿using EducationalAdministrationSystem.API.Common.DB;
 using EducationalAdministrationSystem.API.Common.Helper;
-using EducationalAdministrationSysTem.API.Repository.UnitOfWork;
+using EducationalAdministrationSysTem.API.IRepository.UnitOfWork;
 using NPOI.SS.Formula.Functions;
 using SqlSugar;
 using System;
@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EducationalAdministrationSysTem.API.Repository.Base
+namespace EducationalAdministrationSysTem.API.IRepository.Base
 {
 
     /// <summary>

@@ -9,7 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EducationalAdministrationSysTem.API.IServices\EducationalAdministrationSysTem.API.IServices.csproj" />
     <ProjectReference Include="..\EducationalAdministrationSysTem.API.Model\EducationalAdministrationSysTem.API.Model.csproj" />
-    <ProjectReference Include="..\EducationalAdministrationSysTem.API.Repository\EducationalAdministrationSysTem.API.Repository.csproj" />
+    <ProjectReference Include="..\EducationalAdministrationSysTem.API.Repository\EducationalAdministrationSysTem.API.IRepository.csproj" />
   </ItemGroup>
 
 </Project>

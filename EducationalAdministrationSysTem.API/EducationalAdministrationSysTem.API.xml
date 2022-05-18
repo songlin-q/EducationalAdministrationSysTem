@@ -23,5 +23,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:EducationalAdministrationSysTem.API.Controllers.LoginController.value">
+            <summary>
+            获取
+            </summary>
+            <returns></returns>
+        </member>
     </members>
 </doc>

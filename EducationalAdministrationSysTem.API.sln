@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalAdministrationSysTem.API", "EducationalAdministrationSysTem.API\EducationalAdministrationSysTem.API.csproj", "{2A970E61-26F8-4DBA-B331-6121C00EA4CE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalAdministrationSysTem.API.Repository", "EducationalAdministrationSysTem.API.Repository\EducationalAdministrationSysTem.API.Repository.csproj", "{271A791D-A912-477F-93CC-43F593783915}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalAdministrationSysTem.API.IRepository", "EducationalAdministrationSysTem.API.Repository\EducationalAdministrationSysTem.API.IRepository.csproj", "{271A791D-A912-477F-93CC-43F593783915}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalAdministrationSysTem.API.Model", "EducationalAdministrationSysTem.API.Model\EducationalAdministrationSysTem.API.Model.csproj", "{2BC90A07-1959-4EE0-9714-D6A8908F57EC}"
 EndProject

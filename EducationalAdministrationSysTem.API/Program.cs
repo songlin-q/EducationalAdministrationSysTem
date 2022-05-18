@@ -1,15 +1,52 @@
 
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using EducationalAdministrationSystem.API.Common.Helper;
+using EducationalAdministrationSysTem.API.IRepository.Base;
+using EducationalAdministrationSysTem.API.IServices.Base;
 using EducationalAdministrationSysTem.API.Model.Context;
+using EducationalAdministrationSysTem.API.Services.Base;
 using EducationalAdministrationSysTem.API.Setup;
 using SqlSugar;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMvc();
 // Add services to the container.
-
 //将配置文件注册进行方便后面使用
 builder.Services.AddSingleton(new EducationalAdministrationSystem.API.Common.Helper.AppSettings(builder.Configuration));
+
+//注入autofac
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());//注入autofac
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    //    builder.Register(c => new CallLogger()).Named<IInterceptor>("demotest");
+
+    //builder.RegisterType<CallLogger>().AsSelf().InstancePerLifetimeScope();//注册拦截器
+
+    var basePath = AppContext.BaseDirectory;
+    var servicesDllFile = Path.Combine(basePath, "EducationalAdministrationSysTem.API.Services.dll");//获取注入项目绝对路径
+
+    var repositoryDllFile = Path.Combine(basePath, "EducationalAdministrationSysTem.API.IRepository.dll");
+    containerBuilder.RegisterGeneric(typeof(BaseRepository<>)).As(typeof(IBaseRepository<>)).InstancePerDependency();//注册仓储
+    var assemblysServices = Assembly.LoadFrom(servicesDllFile);//直接采用加载文件的方法
+    var assemblysRepository = Assembly.LoadFrom(repositoryDllFile);//直接采用加载文件的方法
+    containerBuilder.RegisterAssemblyTypes(assemblysServices)
+              .AsImplementedInterfaces()
+              .InstancePerLifetimeScope()
+              .PropertiesAutowired();
+    //.EnableInterfaceInterceptors();//启用拦截器
+
+    containerBuilder.RegisterAssemblyTypes(assemblysRepository)
+            .AsImplementedInterfaces()
+            .InstancePerLifetimeScope()
+            .PropertiesAutowired();
+    // .EnableInterfaceInterceptors();//绑定拦截器;.InterceptedBy(typeof(CallLogger))
+
+
+});
+
+
 
 
 //注册swagger
