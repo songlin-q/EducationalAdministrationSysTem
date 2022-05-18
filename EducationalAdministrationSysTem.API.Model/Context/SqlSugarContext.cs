@@ -30,8 +30,12 @@ namespace EducationalAdministrationSysTem.API.Model.Context
         /// </summary>
         public void CreateModelToClass()
         {
-         
+            //获取到当前这个文件所在的路径
+
             db.DbFirst.IsCreateAttribute().CreateClassFile("D:\\Models\\", "Models");
         }
+
+   
+
     }
 }

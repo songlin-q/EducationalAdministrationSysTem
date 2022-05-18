@@ -4,14 +4,22 @@
         <name>EducationalAdministrationSysTem.API</name>
     </assembly>
     <members>
-        <member name="T:EducationalAdministrationSysTem.API.Controllers.UserInfoController">
+        <member name="T:EducationalAdministrationSysTem.API.Controllers.CreateTableController">
             <summary>
             用户接口
             </summary>
         </member>
-        <member name="M:EducationalAdministrationSysTem.API.Controllers.UserInfoController.CreateTables">
+        <member name="M:EducationalAdministrationSysTem.API.Controllers.CreateTableController.CreateTables">
             <summary>
             映射表到数据库
+            </summary>
+            
+            
+            <returns></returns>
+        </member>
+        <member name="M:EducationalAdministrationSysTem.API.Controllers.CreateTableController.CreateTablesFile">
+            <summary>
+            将数据库中的表生成为数据模型
             </summary>
             <returns></returns>
         </member>

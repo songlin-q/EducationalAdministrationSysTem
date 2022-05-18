@@ -22,6 +22,8 @@ namespace EducationalAdministrationSysTem.API.Controllers
         /// <summary>
         /// 映射表到数据库
         /// </summary>
+        /// 
+        /// 
         /// <returns></returns>
         [HttpGet]
        

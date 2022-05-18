@@ -1,10 +1,17 @@
 
+using EducationalAdministrationSystem.API.Common.Helper;
 using EducationalAdministrationSysTem.API.Model.Context;
+using EducationalAdministrationSysTem.API.Setup;
 using SqlSugar;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMvc();
 // Add services to the container.
+
+//将配置文件注册进行方便后面使用
+builder.Services.AddSingleton(new EducationalAdministrationSystem.API.Common.Helper.AppSettings(builder.Configuration));
+
+
 //注册swagger
 builder.Services.AddSwaggerGen(s =>
 {
@@ -23,6 +30,10 @@ builder.Services.AddSwaggerGen(s =>
     var xmlPath = Path.Combine(AppContext.BaseDirectory, "EducationalAdministrationSysTem.API.xml");
     s.IncludeXmlComments(xmlPath);//包含注释
 });
+
+//注册sqlsugar配置文件
+builder.Services.AddSqlsugarSetup();
+
 
 //注册sqlsugar
 builder.Services.AddSingleton(sp => new SqlSugarContext(
@@ -43,6 +54,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 
 }
+
 app.UseSwagger();
 app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "EducationSystem v1"); });
 app.UseAuthorization();//权限认证
