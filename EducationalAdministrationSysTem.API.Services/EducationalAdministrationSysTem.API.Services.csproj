@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EducationalAdministrationSysTem.API.IServices\EducationalAdministrationSysTem.API.IServices.csproj" />
+    <ProjectReference Include="..\EducationalAdministrationSysTem.API.Model\EducationalAdministrationSysTem.API.Model.csproj" />
+    <ProjectReference Include="..\EducationalAdministrationSysTem.API.Repository\EducationalAdministrationSysTem.API.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
