@@ -7,12 +7,12 @@ using EducationalAdministrationSysTem.API.Model.DBModels;
 namespace EducationalAdministrationSysTem.API.Services.Services
 {
     /// <summary>
-    /// T_GoodsList服务接口
+    /// T_Students服务接口
     /// </summary>
-     public partial class T_GoodsListService :BaseServices<T_GoodsList>,IT_GoodsListService
+     public partial class T_StudentsService :BaseServices<T_Students>,IT_StudentsService
     {
-         private readonly IBaseRepository<T_GoodsList> _dal;
-         public T_GoodsListService(IBaseRepository<T_GoodsList> dal)
+         private readonly IBaseRepository<T_Students> _dal;
+         public T_StudentsService(IBaseRepository<T_Students> dal)
          {
              this._dal = dal;
              base.baseDal = dal;

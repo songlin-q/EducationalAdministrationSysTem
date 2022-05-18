@@ -10,11 +10,11 @@ namespace EducationalAdministrationSysTem.API.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private IT_BrandService _t_BrandService;
+        private IT_StudentsService _t_StudentsService;
 
-        public LoginController(IT_BrandService t_BrandService)
+        public LoginController(IT_StudentsService t_StudentsService)
         {
-            _t_BrandService = t_BrandService;
+            _t_StudentsService = t_StudentsService;
         }
 
         [HttpGet]
@@ -22,7 +22,7 @@ namespace EducationalAdministrationSysTem.API.Controllers
         {
             MessageModel messageModel = new MessageModel();
 
-            var counts = await _t_BrandService.GetCountBy(s => true);
+            var counts = await _t_StudentsService.GetCountBy(s => true);
             messageModel.response = counts;
             return messageModel;
 

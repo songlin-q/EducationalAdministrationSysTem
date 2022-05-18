@@ -23,6 +23,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:EducationalAdministrationSysTem.API.Controllers.LoginController.GetTokenInfo">
+            <summary>
+            获取token字符串
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:EducationalAdministrationSysTem.API.Controllers.LoginController.value">
             <summary>
             获取
