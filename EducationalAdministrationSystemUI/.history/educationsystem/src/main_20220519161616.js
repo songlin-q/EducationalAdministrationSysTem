@@ -5,7 +5,7 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 import './assets/css/global.css'//引入全局样式表
 import { createWebHistory, createRouter } from 'vue-router'//导入路由
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from '../src/components/HelloWorld.vue'
 
 //定义路由
 const routes = [{

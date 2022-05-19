@@ -89,7 +89,7 @@
 <script>
 export default {
   name: "HelloWorld",
-  msg: "你好",
+  msg:"",
 };
 </script>
 

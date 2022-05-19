@@ -57,7 +57,6 @@
           <router-view></router-view></div
       ></el-col>
     </el-row>
-
     <el-dialog
       v-model="dialogVisible"
       title="注册"

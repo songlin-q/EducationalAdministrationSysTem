@@ -53,11 +53,10 @@
               </el-form-item>
             </el-form>
           </el-row>
-          <router-link to="/Home">首页</router-link>
-          <router-view></router-view></div
-      ></el-col>
+          <router-link to="/about_">首页</router-link>
+        </div></el-col
+      >
     </el-row>
-
     <el-dialog
       v-model="dialogVisible"
       title="注册"

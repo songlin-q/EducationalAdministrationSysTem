@@ -9,10 +9,10 @@ namespace EducationalAdministrationSysTem.API.Model.Model
 {
     public class UserInfo
     {
-        [SugarColumn(IsIdentity =true,IsPrimaryKey =true)]
-        public int Id { get; set; }
-        public string ?  UserName { get; set; }
-        public int Age { get; set; }
-        public string ? Class { get; set; }
+        public string username { get; set; }
+        public string userEmail { get; set; }
+        public string userTel { get; set; }
+        public string userCode { get; set; }
+        public string userPassword { get; set; }
     }
 }

@@ -36,10 +36,22 @@ namespace EducationalAdministrationSysTem.API.Controllers
         [HttpPost]
         public IActionResult GetTokenInfo()
         {
+            
 
             return null;
         }
 
+        /// <summary>
+        /// 注册用户
+        /// </summary>
+        /// <param name="userJson">前端返回的用户信息json列表</param>
+        /// <returns></returns>
+        public IActionResult RegeditUserInfo(string userJson)
+        {
+            //解析字符串生成为model
+           
+            return null;
+        }
 
         /// <summary>
         /// 获取
