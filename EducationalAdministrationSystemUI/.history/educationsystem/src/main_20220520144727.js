@@ -9,7 +9,7 @@ import Router from './router/index'
 
 var app=createApp(MainInfo);
 app.use(ElementPlus);
-app.use(Router);
+app.use(router);
 app.mount('#app')
 
 

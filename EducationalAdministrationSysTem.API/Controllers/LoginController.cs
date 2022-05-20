@@ -1,6 +1,8 @@
 ﻿using EducationalAdministrationSysTem.API.IServices.IServices;
+using EducationalAdministrationSysTem.API.JWT;
 using EducationalAdministrationSysTem.API.Model.ViewModel;
 using EducationalAdministrationSysTem.API.Services.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,11 +12,13 @@ namespace EducationalAdministrationSysTem.API.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
+       
         private IT_StudentsService _t_StudentsService;
 
         public LoginController(IT_StudentsService t_StudentsService)
         {
             _t_StudentsService = t_StudentsService;
+          
         }
           
         [HttpGet]
@@ -34,11 +38,17 @@ namespace EducationalAdministrationSysTem.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult GetTokenInfo()
+        public string GetTokenInfo()
         {
-            
+            var uInfo = new View_AdminInfo() { 
+            UserId=1,
+            LoginName="Admin",
+            RealName="Admin"
+           
+            };
+            var xx = GetJwtToken.GenerateJwtToken(uInfo); ;
 
-            return null;
+            return xx;
         }
 
         /// <summary>
@@ -46,6 +56,7 @@ namespace EducationalAdministrationSysTem.API.Controllers
         /// </summary>
         /// <param name="userJson">前端返回的用户信息json列表</param>
         /// <returns></returns>
+        [HttpPost]
         public IActionResult RegeditUserInfo(string userJson)
         {
             //解析字符串生成为model

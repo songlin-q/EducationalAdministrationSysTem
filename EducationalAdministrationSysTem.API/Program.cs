@@ -1,14 +1,21 @@
 
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using EducationalAdministrationSystem.API.Common.ConvertHelper;
 using EducationalAdministrationSystem.API.Common.Helper;
 using EducationalAdministrationSysTem.API.IRepository.Base;
 using EducationalAdministrationSysTem.API.IServices.Base;
 using EducationalAdministrationSysTem.API.Model.Context;
+using EducationalAdministrationSysTem.API.Model.ViewModel;
 using EducationalAdministrationSysTem.API.Services.Base;
 using EducationalAdministrationSysTem.API.Setup;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 using SqlSugar;
 using System.Reflection;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddMvc();
@@ -45,8 +52,65 @@ builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
 
 
 });
+#region jwt Bearer认证令牌认证
+
+var _tokenParameter = AppSettings.app<tokenParameter>(new string[] { "JwtConfig" }).FirstOrDefault();//获取到appsettings中配置的信息并转换为model
 
 
+var key = Encoding.ASCII.GetBytes(_tokenParameter.Secret);//获取到JWT加密的Key,这个值的长度不能太短，否则会出现错误
+
+//组装令牌验证参数
+var tokenValidationParams = new TokenValidationParameters
+{
+    ValidateIssuerSigningKey = true,
+    IssuerSigningKey = new SymmetricSecurityKey(key),
+    ValidateIssuer = false,
+    ValidateAudience = false,
+    ValidateLifetime = true,
+    RequireExpirationTime = false,
+    ClockSkew = TimeSpan.Zero
+};
+
+builder.Services.AddSingleton(tokenValidationParams);
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(jwt =>
+{
+    jwt.SaveToken = true;
+    jwt.TokenValidationParameters = tokenValidationParams;
+});
+#endregion
+
+builder.Services.AddHttpClient();
+
+builder.Services.AddControllers(options =>
+{
+    //options.Filters.Add<ExtentionTool.LoginAuthorzation>();
+    //options.Filters.Add<Filter.TokenAuthorizeAttribute>(); // 添加身份验证过滤器 -- 菜单操作权限
+})  //全局配置Json序列化处理
+.AddJsonOptions(options =>
+{
+    //格式化日期时间格式
+    options.JsonSerializerOptions.Converters.Add(new DatetimeJsonConverter());//自定义的输出格式：yyyy-MM-dd HH:mm:ss
+                                                                              //数据格式首字母小写
+                                                                              //options.JsonSerializerOptions.PropertyNamingPolicy =JsonNamingPolicy.CamelCase;
+                                                                              //数据格式原样输出
+    options.JsonSerializerOptions.PropertyNamingPolicy = null;
+    //取消Unicode编码
+    options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All);
+    //忽略空值
+    //options.JsonSerializerOptions.IgnoreNullValues = true;
+    //允许额外符号
+    options.JsonSerializerOptions.AllowTrailingCommas = true;
+    //反序列化过程中属性名称是否使用不区分大小写的比较
+    options.JsonSerializerOptions.PropertyNameCaseInsensitive = false;
+}
+);
 
 
 //注册swagger
@@ -94,6 +158,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseSwagger();
 app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "EducationSystem v1"); });
+app.UseAuthentication();//JWT
 app.UseAuthorization();//权限认证
 
 app.MapControllers();//这个在使用控制器的时候是必要的，不然swagger不会执行到控制器中的接口

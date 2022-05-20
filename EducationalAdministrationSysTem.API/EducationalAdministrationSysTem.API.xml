@@ -29,6 +29,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:EducationalAdministrationSysTem.API.Controllers.LoginController.RegeditUserInfo(System.String)">
+            <summary>
+            注册用户
+            </summary>
+            <param name="userJson">前端返回的用户信息json列表</param>
+            <returns></returns>
+        </member>
         <member name="M:EducationalAdministrationSysTem.API.Controllers.LoginController.value">
             <summary>
             获取
