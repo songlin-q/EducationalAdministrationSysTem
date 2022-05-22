@@ -29,7 +29,7 @@ namespace EducationalAdministrationSysTem.API.Controllers
             var counts = await _t_StudentsService.GetCountBy(s => true);
             messageModel.response = counts;
             return messageModel;
-
+             
 
         }
          
