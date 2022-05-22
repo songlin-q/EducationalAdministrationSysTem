@@ -17,5 +17,14 @@ export default {
       clickPage,
     };
   },
+  methods: {
+    clickpage(){
+let { proxy } = getCurrentInstance();
+ console.log(proxy.$router);
+      proxy.$router.push({
+        path: "/HelloWorld",
+      });
+    }
+  },
 };
 </script>

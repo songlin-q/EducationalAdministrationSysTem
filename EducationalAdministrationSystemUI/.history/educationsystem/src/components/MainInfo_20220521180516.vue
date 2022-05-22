@@ -8,9 +8,9 @@ export default {
     //在vue3中没有this
     let { proxy } = getCurrentInstance();
     let clickPage = () => {
-      console.log(proxy.$router);
+      console.log(proxy);
       proxy.$router.push({
-        path: "/HelloWorld",
+        path: "/MainOne",
       });
     };
     return {

@@ -5,7 +5,7 @@ import LoginInfo from '../components/LoginInfo.vue'
 import MainOne from '../components/MainOne.vue'
 //定义路由
 const routes = [{
-    path: '/',//组件一，path和component可以乱写，
+    path: '/LoginInfo',//组件一，path和component可以乱写，
                        //只要保持path与前面to，component和import两处相同即可
     component: LoginInfo,
     name:LoginInfo
@@ -17,13 +17,6 @@ const routes = [{
                        //只要保持path与前面to，component和import两处相同即可
     component: MainInfo,
     name:MainInfo,
-
-},
-{
-    path: '/HelloWorld',//组件一，path和component可以乱写，
-                       //只要保持path与前面to，component和import两处相同即可
-    component: HelloWorld,
-    name:HelloWorld,
 
 },
 {

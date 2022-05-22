@@ -144,9 +144,9 @@ export default {
     //登录方法
     login() {
       if (this.identifyCode.toLowerCase() == this.code.toLowerCase()) {
-        //使用路由进行页面跳转
+        console.log(this.$router);
         this.$router.push({
-          path: "/MainInfo",
+          path: "/HelloWorld",
         });
       } else {
         alert("你输入的验证码不正确!");

@@ -4,18 +4,14 @@
 <script>
 import { getCurrentInstance } from "vue";
 export default {
-  setup() {
-    //在vue3中没有this
-    let { proxy } = getCurrentInstance();
-    let clickPage = () => {
+  methods: {
+    clickpage() {
+      let { proxy } = getCurrentInstance();
       console.log(proxy.$router);
       proxy.$router.push({
         path: "/HelloWorld",
       });
-    };
-    return {
-      clickPage,
-    };
+    },
   },
 };
 </script>

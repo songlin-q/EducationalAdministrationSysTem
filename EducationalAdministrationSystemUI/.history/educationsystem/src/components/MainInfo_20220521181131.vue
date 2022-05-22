@@ -17,5 +17,8 @@ export default {
       clickPage,
     };
   },
+  methods: {
+    
+  },
 };
 </script>

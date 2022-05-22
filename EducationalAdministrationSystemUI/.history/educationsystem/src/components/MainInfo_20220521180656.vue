@@ -1,5 +1,6 @@
 <template>
   <h2 @click="clickPage">登录选项</h2>
+  <router-view></router-view>
 </template>
 <script>
 import { getCurrentInstance } from "vue";

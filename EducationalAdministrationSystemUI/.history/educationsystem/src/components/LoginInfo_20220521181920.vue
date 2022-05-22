@@ -42,7 +42,7 @@
               </el-form-item>
               <!-- 按钮 -->
               <el-form-item>
-                <el-button type="primary" @click="login">登录</el-button>
+                <el-button type="primary" @click="clickPage">登录</el-button>
 
                 <el-button @click="cancel">取消</el-button>
               </el-form-item>
@@ -101,15 +101,15 @@
     </el-dialog>
   </div>
 </template>
+
 <script>
 import logoUrl from "../assets/Head.jpg";
 import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
-
 //这里验证码的组件使用的最笨的方法，后续优化的话可以只使用一个组件，将ID传入到父组件中就可以了
 import SIdentify from "../components/Identity/IdentityCode.vue";
 import SIdentify2 from "../components/Identity/IdentityCode2.vue";
-
+import { getCurrentInstance } from "vue"; //vue3中不存在this所以注入来获取上下文
 export default {
   data() {
     return {
@@ -136,22 +136,30 @@ export default {
       },
     };
   },
+  setup() {
+    //在vue3中没有this
+    let { proxy } = getCurrentInstance();
+    let login = () => {
+      if (this.identifyCode.toLowerCase() == this.code.toLowerCase()) {
+        console.log(proxy.$router);
+        proxy.$router.push({
+          path: "/HelloWorld",
+        });
+      } else {
+        alert("你输入的验证码不正确!");
+      }
+    };
+    return {
+      login,
+    };
+  },
   components: {
     SIdentify,
     SIdentify2,
   },
   methods: {
     //登录方法
-    login() {
-      if (this.identifyCode.toLowerCase() == this.code.toLowerCase()) {
-        //使用路由进行页面跳转
-        this.$router.push({
-          path: "/MainInfo",
-        });
-      } else {
-        alert("你输入的验证码不正确!");
-      }
-    },
+    login() {},
     //取消方法
     cancel() {
       alert("你已经取消登录!");

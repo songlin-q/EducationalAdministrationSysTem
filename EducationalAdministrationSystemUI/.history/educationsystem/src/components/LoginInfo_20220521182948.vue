@@ -144,7 +144,7 @@ export default {
     //登录方法
     login() {
       if (this.identifyCode.toLowerCase() == this.code.toLowerCase()) {
-        //使用路由进行页面跳转
+
         this.$router.push({
           path: "/MainInfo",
         });

@@ -10,7 +10,7 @@ export default {
     let clickPage = () => {
       console.log(proxy.$router);
       proxy.$router.push({
-        path: "/HelloWorld",
+        path: "/MainOne",
       });
     };
     return {

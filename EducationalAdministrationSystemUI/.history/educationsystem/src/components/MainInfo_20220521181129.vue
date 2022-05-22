@@ -17,5 +17,6 @@ export default {
       clickPage,
     };
   },
+  meth
 };
 </script>

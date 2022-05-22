@@ -17,5 +17,11 @@ export default {
       clickPage,
     };
   },
+  methods: {
+    clickpage(){
+
+      
+    }
+  },
 };
 </script>

@@ -101,15 +101,15 @@
     </el-dialog>
   </div>
 </template>
+
 <script>
 import logoUrl from "../assets/Head.jpg";
 import { ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
-
 //这里验证码的组件使用的最笨的方法，后续优化的话可以只使用一个组件，将ID传入到父组件中就可以了
 import SIdentify from "../components/Identity/IdentityCode.vue";
 import SIdentify2 from "../components/Identity/IdentityCode2.vue";
-
+import { getCurrentInstance } from "vue"; //vue3中不存在this所以注入来获取上下文
 export default {
   data() {
     return {
@@ -122,6 +122,7 @@ export default {
       phone: "15356479454",
       dialogVisible: ref(false), //弹出层的使用
       // 图片验证码
+      proxy: getCurrentInstance(),
       identifyCode: "8Hy0", //默认值
       regeditidentifyCode: "u8y7", //注册验证码
       // 验证码规则
@@ -136,6 +137,18 @@ export default {
       },
     };
   },
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
+    let clickPage = function () {
+      router.push({
+        path: "/Reedit",
+      });
+    };
+    return {
+      clickPage,
+    };
+  },
   components: {
     SIdentify,
     SIdentify2,
@@ -144,9 +157,10 @@ export default {
     //登录方法
     login() {
       if (this.identifyCode.toLowerCase() == this.code.toLowerCase()) {
-        //使用路由进行页面跳转
-        this.$router.push({
-          path: "/MainInfo",
+        let proxy = getCurrentInstance();
+        console.log(this.proxy.$router);
+        this.proxy.$router.push({
+          path: "/HelloWorld",
         });
       } else {
         alert("你输入的验证码不正确!");

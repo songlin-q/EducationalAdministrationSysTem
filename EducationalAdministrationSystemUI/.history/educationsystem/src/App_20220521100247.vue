@@ -1,10 +1,15 @@
 <template>
-  <router-view></router-view>
+  <HelloWorld />
 </template>
 
 <script>
+import HelloWorld from "./components/LoginInfo.vue";
+
 export default {
   name: "App",
+  components: {
+    HelloWorld,
+  },
 };
 </script>
 

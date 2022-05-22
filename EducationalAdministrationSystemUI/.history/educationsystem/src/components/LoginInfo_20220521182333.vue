@@ -109,6 +109,7 @@ import { useRoute, useRouter } from "vue-router";
 //这里验证码的组件使用的最笨的方法，后续优化的话可以只使用一个组件，将ID传入到父组件中就可以了
 import SIdentify from "../components/Identity/IdentityCode.vue";
 import SIdentify2 from "../components/Identity/IdentityCode2.vue";
+import { getCurrentInstance } from "vue"; //vue3中不存在this所以注入来获取上下文
 
 export default {
   data() {
@@ -136,6 +137,19 @@ export default {
       },
     };
   },
+  setup() {
+    //在vue3中没有this
+    let { proxy } = getCurrentInstance();
+    let clickPage = () => {
+      console.log(proxy.$router);
+      proxy.$router.push({
+        path: "/HelloWorld",
+      });
+    };
+    return {
+      clickPage,
+    };
+  },
   components: {
     SIdentify,
     SIdentify2,
@@ -144,9 +158,9 @@ export default {
     //登录方法
     login() {
       if (this.identifyCode.toLowerCase() == this.code.toLowerCase()) {
-        //使用路由进行页面跳转
-        this.$router.push({
-          path: "/MainInfo",
+        console.log(proxy.$router);
+        proxy.$router.push({
+          path: "/HelloWorld",
         });
       } else {
         alert("你输入的验证码不正确!");

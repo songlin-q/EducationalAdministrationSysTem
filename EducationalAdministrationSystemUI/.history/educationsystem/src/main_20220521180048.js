@@ -7,8 +7,7 @@ import MainInfo from './components/MainInfo.vue'
 import './assets/css/global.css'//引入全局样式表
 import Router from './router/index'
 
-
-var app=createApp(App);
+var app=createApp(MainInfo);
 app.use(ElementPlus);
 app.use(Router);
 app.mount('#app')
