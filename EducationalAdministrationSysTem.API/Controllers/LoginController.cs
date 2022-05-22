@@ -32,7 +32,7 @@ namespace EducationalAdministrationSysTem.API.Controllers
 
 
         }
-
+         
         /// <summary>
         /// 获取token字符串
         /// </summary>
