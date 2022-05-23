@@ -3,6 +3,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using EducationalAdministrationSystem.API.Common.ConvertHelper;
 using EducationalAdministrationSystem.API.Common.Helper;
+using EducationalAdministrationSystem.API.Common.redis;
 using EducationalAdministrationSysTem.API.IRepository.Base;
 using EducationalAdministrationSysTem.API.IServices.Base;
 using EducationalAdministrationSysTem.API.Model.Context;
@@ -86,6 +87,17 @@ builder.Services.AddAuthentication(options =>
 });
 #endregion
 
+#region redis缓存
+var section = builder.Configuration.GetSection("Redis:Default");
+//连接字符串
+string _connectionString = section.GetSection("Connection").Value;
+//实例名称
+string _instanceName = section.GetSection("InstanceName").Value;
+//默认数据库 
+int _defaultDB = int.Parse(section.GetSection("DefaultDB").Value ?? "0");
+builder.Services.AddSingleton(new RedisHelper(_connectionString, _instanceName, _defaultDB).GetDatabase());//单例模式注入redis配置类
+#endregion
+
 builder.Services.AddHttpClient();
 
 builder.Services.AddControllers(options =>
@@ -155,6 +167,9 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 
 }
+
+
+app.UseHttpsRedirection();
 
 app.UseSwagger();
 app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "EducationSystem v1"); });

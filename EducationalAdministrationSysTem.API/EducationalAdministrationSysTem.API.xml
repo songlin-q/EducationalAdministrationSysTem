@@ -23,6 +23,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:EducationalAdministrationSysTem.API.Controllers.LoginController.GetRedis">
+            <summary>
+            获取redis缓存
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EducationalAdministrationSysTem.API.Controllers.LoginController.Setvalue">
+            <summary>
+            写入缓存
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:EducationalAdministrationSysTem.API.Controllers.LoginController.GetTokenInfo">
             <summary>
             获取token字符串
