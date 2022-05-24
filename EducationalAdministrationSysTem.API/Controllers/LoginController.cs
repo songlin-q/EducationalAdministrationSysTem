@@ -65,7 +65,7 @@ namespace EducationalAdministrationSysTem.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public string GetTokenInfo()
+        public string GetTokenInfo() 
         {
             var uInfo = new View_AdminInfo()
             {
