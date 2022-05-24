@@ -127,7 +127,7 @@ builder.Services.AddControllers(options =>
     options.JsonSerializerOptions.Converters.Add(new DatetimeJsonConverter());//自定义的输出格式：yyyy-MM-dd HH:mm:ss
                                                                               //数据格式首字母小写
                                                                               //options.JsonSerializerOptions.PropertyNamingPolicy =JsonNamingPolicy.CamelCase;
-                                                                              //数据格式原样输出
+                                                                               //数据格式原样输出
     options.JsonSerializerOptions.PropertyNamingPolicy = null;
     //取消Unicode编码
     options.JsonSerializerOptions.Encoder = JavaScriptEncoder.Create(UnicodeRanges.All);
