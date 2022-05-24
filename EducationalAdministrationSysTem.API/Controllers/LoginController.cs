@@ -39,12 +39,12 @@ namespace EducationalAdministrationSysTem.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async Task<string>  GetRedis()
+        public async Task<string> GetRedis()
         {
 
 
 
-            var vCode = _redis.StringGet("LoginVCode");
+            var vCode =await _redis.StringGetAsync("LoginVCode");
             return vCode;
         }
 
