@@ -76,6 +76,7 @@ namespace EducationalAdministrationSysTem.API.Controllers
             var xx = GetJwtToken.GenerateJwtToken(uInfo); ;
 
             return xx;
+
         }
 
         /// <summary>
