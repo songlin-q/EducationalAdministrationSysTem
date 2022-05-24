@@ -97,6 +97,22 @@ string _instanceName = section.GetSection("InstanceName").Value;
 int _defaultDB = int.Parse(section.GetSection("DefaultDB").Value ?? "0");
 builder.Services.AddSingleton(new RedisHelper(_connectionString, _instanceName, _defaultDB).GetDatabase());//单例模式注入redis配置类
 #endregion
+ 
+#region 解决跨域问题 
+string anyAllowSpecificOrigins = "any";//解决跨域 在下方还要进行使用
+//解决跨域
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(anyAllowSpecificOrigins, corsbuilder =>
+    {
+        var corsPath = builder.Configuration.GetSection("CorsPaths").GetChildren().Select(p => p.Value).ToArray();
+        corsbuilder.WithOrigins(corsPath)
+        .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();//指定处理cookie
+    });
+});
+#endregion
 
 builder.Services.AddHttpClient();
 
@@ -168,6 +184,7 @@ if (app.Environment.IsDevelopment())
 
 }
 
+app.UseCors(anyAllowSpecificOrigins);//支持跨域：允许特定来源的主机访问
 
 app.UseHttpsRedirection();
 
