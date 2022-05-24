@@ -20,7 +20,7 @@
               <el-menu-item index="1-4-1">Option 4-1</el-menu-item>
             </el-sub-menu>
           </el-sub-menu>
-          <!-- personalManagement -->
+          personalManagement
           <el-sub-menu index="2">
             <template #title>
               <el-icon><icon-menu /></el-icon>Navigator Two
