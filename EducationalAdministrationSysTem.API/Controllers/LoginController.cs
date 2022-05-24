@@ -59,6 +59,7 @@ namespace EducationalAdministrationSysTem.API.Controllers
             _redis.StringSet("LoginVCode", "测试数据", new TimeSpan(0, 3, 0));//5分钟有效期
             return Content("操作成功!");
         }
+
         /// <summary>
         /// 获取token字符串
         /// </summary>
